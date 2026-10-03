@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Regal Catering & Events</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #4b126f, #b41475);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #ffd900;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffd900;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 7%;
+      background:
+        linear-gradient(rgba(75,18,111,.75), rgba(180,20,117,.65)),
+        url("cake-blue.jpg") center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ffd900;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      background: #ffd900;
+      color: #4b126f;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 70px 7%;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .title h2 {
+      color: #4b126f;
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      color: #777;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .about-text h2 {
+      color: #4b126f;
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    /* SERVICES */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.12);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #b41475;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* TRAINING */
+    .training {
+      background: linear-gradient(135deg, #4b126f, #b41475);
+      color: white;
+      text-align: center;
+      border-radius: 30px;
+      margin: 50px 7%;
+      padding: 60px 20px;
+    }
+
+    .training h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #ffd900;
+      font-size: 45px;
+      font-weight: bold;
+      margin: 20px;
+    }
+
+    .training ul {
+      list-style: none;
+      line-height: 2;
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #f8f3fa;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-box h2 {
+      color: #4b126f;
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .contact-box p {
+      margin: 12px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #301044;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    footer span {
+      color: #ffd900;
+    }
+
+    /* MOBILE */
+    @media(max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 600px) {
+      .hero {
+        min-height: 80vh;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .cards,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .training h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    REGAL <span>CATERING & EVENTS</span>
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#training">Training</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Regal <span>Catering & Events</span></h1>
+
+    <p>
+      Delicious cakes, pastries, drinks and professional catering
+      services made with creativity, quality and love.
+    </p>
+
+    <a href="#services" class="btn">Explore Our Services</a>
+
+    <a
+      href="https://wa.me/2347035584049"
+      class="btn whatsapp"
+      target="_blank">
+      WhatsApp Us
+    </a>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="about">
+
+    <img src="pink-cake.jpg" alt="Regal Catering Cake">
+
+    <div class="about-text">
+      <h2>Welcome to Regal Catering & Events</h2>
+
+      <p>
+        At Regal Catering & Events, we create delicious food,
+        beautiful cakes and memorable experiences for every occasion.
+      </p>
+
+      <p>
+        From birthday cakes and pastries to drinks and event catering,
+        we are committed to quality and customer satisfaction.
+      </p>
+
+      <p>
+        <strong>BN: 2280018</strong>
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services">
+
+  <div class="title">
+    <h2>Our Services</h2>
+    <p>Quality treats made specially for you.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="pink-cake.jpg" alt="Cakes">
+      <div class="card-content">
+        <h3>🎂 Cakes</h3>
+        <p>
+          Vanilla, Chocolate, Red Velvet and Rich Fruit Cakes.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="meat-pie.jpg" alt="Pastries">
+      <div class="card-content">
+        <h3>🥐 Pastries</h3>
+        <p>
+          Bread, Egg Rolls, Fish Rolls, Meat Pies,
+          Small Chops and Pizza.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pink-cake2.jpg" alt="Frosting">
+      <div class="card-content">
+        <h3>🍰 Frosting</h3>
+        <p>
+          Butter Cream, Whip Cream and Fondant.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="drinks.jpg" alt="Drinks">
+      <div class="card-content">
+        <h3>🥤 Drinks</h3>
+        <p>
+          Zobo, Tiger Nut and Yogurt drinks.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRAINING -->
+<section id="training">
+
+  <div class="training">
+
+    <h2>🎓 Promo Training</h2>
+
+    <p>
+      Learn • Create • Build Your Skills!
+    </p>
+
+    <div class="price">₦150,000</div>
+
+    <p>
+      <strong>October – December</strong>
+    </p>
+
+    <ul>
+      <li>✓ Cake Making</li>
+      <li>✓ Pastries</li>
+      <li>✓ Frosting</li>
+      <li>✓ Drinks</li>
+      <li>✓ Practical Training</li>
+    </ul>
+
+    <a
+      href="https://wa.me/2347035584049"
+      class="btn"
+      target="_blank">
+      Register Now
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+
+  <div class="title">
+    <h2>Our Gallery</h2>
+    <p>A taste of what we create.</p>
+  </div>
+
+  <div class="gallery">
+
+    <img src="cake-blue.jpg" alt="Blue Cake">
+
+    <img src="pink-cake.jpg" alt="Pink Cake">
+
+    <img src="pink-cake2.jpg" alt="Pink Cake">
+
+    <img src="meat-pie.jpg" alt="Meat Pie">
+
+    <img src="pastries.jpg" alt="Pastries">
+
+    <img src="promo.jpg" alt="Regal Catering Training">
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="contact-box">
+
+    <h2>Contact Regal Catering & Events</h2>
+
+    <p>📍 No 8 Mobile Road, by Ilepo Bus-Stop, Satellite Town, Lagos</p>
+
+    <p>📞 <strong>0703 558 4049</strong></p>
+
+    <p>🏢 BN: 2280018</p>
+
+    <br>
+
+    <a
+      href="tel:07035584049"
+      class="btn">
+      Call Us
+    </a>
+
+    <a
+      href="https://wa.me/2347035584049"
+      class="btn whatsapp"
+      target="_blank">
+      Chat on WhatsApp
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <p>
+    © 2026 <span>Regal Catering & Events</span>.
+    All Rights Reserved.
+  </p>
+
+  <p>
+    Learn • Create • Build Your Skills!
+  </p>
+
+</footer>
+
+</body>
+  </html>
